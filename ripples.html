@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripples</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+    #ripples-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://sirxemic.github.io/jquery.ripples/jquery.ripples-min.js"></script>
+</head>
+<body>
+  <div id="ripples-container"></div>
+  <script>
+    $(function() {
+      $('#ripples-container').ripples({
+        resolution: 256,
+        dropRadius: 20,
+        perturbance: 0.03,
+        interactive: true
+      });
+
+      // Enable haptic feedback on click
+      document.addEventListener('click', () => {
+        if (navigator.vibrate) {
+          navigator.vibrate(30);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
